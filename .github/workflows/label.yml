@@ -21,12 +21,9 @@ name: Labeler
 on: [push]
 
 jobs:
-  label:
-    runs-on: ubuntu-latest
-
-    steps:
-     - name: Check out the repo
-        uses: actions/checkout@v2
+  build:
+    name: Tag automatically when pushed
+    runs-on: ubuntu-latest    steps:
       - name: tagging
         uses: actions/setup-node@v1
         run: npm version prerelease --preid=beta
