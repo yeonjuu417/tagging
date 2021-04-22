@@ -1,0 +1,20 @@
+{
+  "name": "tagging",
+  "version": "1.0.1-beta.0",
+  "description": "hi",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yeonjuu417/tagging.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/yeonjuu417/tagging/issues"
+  },
+  "homepage": "https://github.com/yeonjuu417/tagging#readme"
+}
