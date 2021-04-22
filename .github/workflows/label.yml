@@ -1,0 +1,30 @@
+# name: "yeonju_task"
+
+# on:
+#   [push]
+#   # push:
+#   # branches:
+#   #   - yeonju_task
+#   #   tags:
+#   #     - 'v*.*.*-beta.*'
+# jobs:
+#   build:
+#     name: Tag automatically when pushed
+#     runs-on: ubuntu-latest
+#     steps:
+#       - name: Check out the repo
+#         uses: actions/checkout@v2
+#       - name: tagging
+#         uses: actions/setup-node@v1
+#         run: npm version prerelease --preid=beta
+name: Labeler
+on: [push]
+
+jobs:
+  label:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/labeler@v2
+        with:
+          repo-token: "${{ secrets.GITHUB_TOKEN }}"
