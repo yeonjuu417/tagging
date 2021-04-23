@@ -22,11 +22,10 @@ jobs:
       - uses: actions/checkout@v2
       - name: Git Version Beta
         id: version
-        - run: npm ci
-        - run: git config --global user.email "opentrack.dev@gmail.com"
-        - run: git config --global user.name "opentrack"
-        - run: npm version prerelease --preid=beta
-        - run: echo "::set-output name=tag::$(echo git describe)"
+        run: |
+          git config --global user.email "opentrack.dev@gmail.com"
+          git config --global user.name "opentrack"
+          npm version prerelease --preid=beta
+          echo "::set-output name=tag::$(echo git describe)"
       - name: Test
-        - run: echo ${{ steps.version.outputs.tag }}
-
+        run: echo ${{ steps.version.outputs.tag }}
