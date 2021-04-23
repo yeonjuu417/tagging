@@ -1,7 +1,7 @@
 name: "potter pipeline"
 
 on:
-  # push:
+  push:
   schedule:
     - cron: "* * * * *"
   # '0 */2 * * *'
