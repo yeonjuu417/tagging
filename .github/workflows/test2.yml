@@ -25,4 +25,5 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
       - run: npm ci
-      - run: npm version prerelease --preid=beta
+      - run: npm version patch
+      # prerelease --preid=beta
