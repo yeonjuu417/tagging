@@ -34,7 +34,7 @@ jobs:
       - name: tag check
         if: ${{github.event.head_commit.message}} == ${{steps.tag.outputs.tag}}
         # if: ${{ startsWith(steps.tag.outputs.tag, 'v') }}
-        # run: "::error"
+        run: "::error"
       - name: Git Version Beta
         id: version
         run: |
