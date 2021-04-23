@@ -10,21 +10,19 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-      - name: tag
-        id: tag
-        run: echo "::set-output name=tag::$(git describe)"
-      - run: echo "${{steps.tag.outputs.tag}}"
+      - run: echo "${{ startsWith(github.event.head_commit.message, '[VERSIONING]') }}"
       - name: tag check
-        if: ${{github.event.head_commit.message}} == ${{steps.tag.outputs.tag}}
-        run: echo '::error file=package.json,line=1,col=5::Missing'
+        if: ${{ startsWith(github.event.head_commit.message, '[VERSIONING]') }}
+        run: echo '::error ::Missing'
       - name: Git Version Beta
         id: version
-        run: |
-          git config --global user.email "opentrack.dev@gmail.com"
-          git config --global user.name "opentrack"
-          npm version prerelease --preid=beta
-          git push origin
-          git push origin $(git describe)
-          echo "::set-output name=tag::$(git describe)"
-      - name: Test
-        run: echo ${{ steps.version.outputs.tag }}
+        run: echo hi
+      #   run: |
+      #     git config --global user.email "opentrack.dev@gmail.com"
+      #     git config --global user.name "opentrack"
+      #     npm version prerelease --preid=beta
+      #     git push origin
+      #     git push origin $(git describe)
+      #     echo "::set-output name=tag::$(git describe)"
+      # - name: Test
+      #   run: echo ${{ steps.version.outputs.tag }}
