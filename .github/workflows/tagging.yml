@@ -20,8 +20,13 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - run: npm ci
-      - run: git config --global user.email "opentrack.dev@gmail.com"
-      - run: git config --global user.name "opentrack"
+      - name: Git Version Beta
+        id: version
+        # - run: npm ci
+        - run: git config --global user.email "opentrack.dev@gmail.com"
+        - run: git config --global user.name "opentrack"
+        - run: npm version prerelease --preid=beta
+        - run: echo "::set-output name=tag::$(echo git describe)"
+      - name: Test
+        - run: echo ${{ steps.version.outputs.tag }}
 
-      - run: npm version prerelease --preid=beta
