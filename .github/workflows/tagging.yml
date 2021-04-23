@@ -24,7 +24,7 @@ jobs:
       - name: commit log check
         id: describe
         run: echo "::set-output name=tag::$(git describe)"
-        whth:
+        with:
           describe: ${{steps.describe.output.tag}}
         if: github.sha != $describe
       - uses: actions/checkout@v2
