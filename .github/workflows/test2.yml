@@ -8,7 +8,7 @@ on:
   push:
     branches: [master]
     tags:
-      - "v*.*.*-beta.*"
+      - "v*.*.*-bet.*"
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
