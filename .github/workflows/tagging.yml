@@ -16,7 +16,7 @@ jobs:
         run: echo "::set-output name=versioning::${{ startsWith(github.event.head_commit.message, '[VERSIONING]') }}"
       - name: Git Version Beta
         id: version
-        if: ${{ steps.tag.outputs.versioning }}
+        if: ${{ !steps.tag.outputs.versioning }}
         run: |
           git config --global user.email "opentrack.dev@gmail.com"
           git config --global user.name "opentrack"
