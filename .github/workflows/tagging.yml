@@ -7,8 +7,8 @@ on:
   # schedule:
   #   - cron: "*/15 * * * *"
   push:
-  paths-ignore:
-    - "/*"
+    paths-ignore:
+      - "/**"
   # tags:
   #   - "v*.*.*-beta.*"
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
