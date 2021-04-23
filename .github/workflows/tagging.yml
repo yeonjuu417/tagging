@@ -22,7 +22,7 @@ jobs:
       - uses: actions/checkout@v2
       - name: Git Version Beta
         id: version
-        # - run: npm ci
+        - run: npm ci
         - run: git config --global user.email "opentrack.dev@gmail.com"
         - run: git config --global user.name "opentrack"
         - run: npm version prerelease --preid=beta
