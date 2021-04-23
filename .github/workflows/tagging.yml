@@ -32,7 +32,8 @@ jobs:
         id: tag
         run: echo "::set-output name=tag::$(git describe)"
       - name: tag check
-        if: ${{ startsWith(steps.tag.outputs.tag, 'v') }}
+        if: ${{github.event.head_commit.message}} == ${{steps.tag.outputs.tag}}
+        # if: ${{ startsWith(steps.tag.outputs.tag, 'v') }}
         run: echo "::error"
       - name: Git Version Beta
         id: version
