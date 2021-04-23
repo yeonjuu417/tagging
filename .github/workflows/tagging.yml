@@ -1,24 +1,17 @@
 name: tagging
 
 on:
-  push:
-  # schedule:
-  #   - cron: "* */2 * * *"
+  schedule:
+    - cron: "* */2 * * *"
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
       - uses: actions/checkout@v2
-      # - run: echo "${{ startsWith(github.event.head_commit.message, '[VERSIONING]') }}"
-      # - name: tag check
-      #   id: tag
-      #   if: ${{ startsWith(github.event.head_commit.message, '[VERSIONING]') }}
-      #   run: echo "::error"
       - name: Git Version Beta
         id: version
         if: ${{ !startsWith(github.event.head_commit.message, '[VERSIONING]') }}
-        # if: ${{ success() }}
         run: |
           git config --global user.email "opentrack.dev@gmail.com"
           git config --global user.name "opentrack"
