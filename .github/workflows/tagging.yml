@@ -26,6 +26,6 @@ jobs:
           git config --global user.email "opentrack.dev@gmail.com"
           git config --global user.name "opentrack"
           npm version prerelease --preid=beta
-          echo "::set-output name=tag::$(echo git describe)"
+          echo "::set-output name=tag::$(git describe)"
       - name: Test
         run: echo ${{ steps.version.outputs.tag }}
