@@ -18,9 +18,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - uses: actions/checkout@v2
+        with:
+          commit: ${{ github.event.head_commit.message }}
       - name: Test
-        uses: actions/checkout@v2
-        run: echo ${{ github.commit_message }}
+        run: echo $commit
       - name: Git Version Beta
         id: version
         if: ${{ !contains(github.commit_message, '[VERSIONING]') }}
