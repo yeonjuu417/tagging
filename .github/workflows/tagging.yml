@@ -1,11 +1,11 @@
 name: tagging test
 
 on:
-  push:
-    branches:
-      - "master"
-  # schedule:
-  #   - cron: "* */1 * * *"
+  # push:
+  #   branches:
+  #     - "master"
+  schedule:
+    - cron: "* */1 * * *"
   # workflow_dispatch:
   #   inputs:
   #     logLevel:
