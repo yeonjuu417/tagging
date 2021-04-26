@@ -1,8 +1,10 @@
 name: tagging
 
 on:
-  schedule:
-    - cron: "* */2 * * *"
+  push:
+    - "master"
+  # schedule:
+  #   - cron: "* */2 * * *"
 jobs:
   build:
     runs-on: ubuntu-latest
