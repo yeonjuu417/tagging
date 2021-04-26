@@ -20,9 +20,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          commit: ${{ github.event.head_commit.message }}
-      - name: Test
-        run: echo $commit
+          ref: ${{ github.event.head_commit.message }}
+      - run: echo $ref
       - name: Git Version Beta
         id: version
         if: ${{ !contains(github.commit_message, '[VERSIONING]') }}
