@@ -1,19 +1,19 @@
-name: tagging
+name: tagging test
 
 on:
   # push:
   #   branches:
   #     - "master"
-  # schedule:
-  #   - cron: "*/30 * * * *"
-  workflow_dispatch:
-    inputs:
-      logLevel:
-        description: "Log level"
-        required: true
-        default: "warning"
-      tags:
-        description: "Test scenario tags"
+  schedule:
+    - cron: "*/30 * * * *"
+  # workflow_dispatch:
+  #   inputs:
+  #     logLevel:
+  #       description: "Log level"
+  #       required: true
+  #       default: "warning"
+  #     tags:
+  #       description: "Test scenario tags"
 jobs:
   build:
     runs-on: ubuntu-latest
