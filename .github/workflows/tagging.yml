@@ -19,9 +19,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - run: |
-        echo "Log level: ${{ github.event.inputs.logLevel }}"
-        echo "Tags: ${{ github.event.inputs.tags }}"
       - uses: actions/checkout@v2
       - name: Test
         run: echo ${{ github.event.head_commit.message }}
