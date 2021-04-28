@@ -1,7 +1,7 @@
 name: tagging test (dev)
 
 on:
-  shedule:
+  schedule:
     - cron: "* */2 * * *"
   workflow_dispatch:
     inputs:
