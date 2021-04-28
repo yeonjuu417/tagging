@@ -1,6 +1,8 @@
 name: tagging test (dev)
 
 on:
+  shedule:
+    - cron: "* */2 * * *"
   workflow_dispatch:
     inputs:
       logLevel:
