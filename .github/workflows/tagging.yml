@@ -18,10 +18,10 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
       - name: get commit message
         run: |
-          echo ::set-output name=push_commit_message::$(git log --format=%B -n 1 HEAD)
+          echo ::set-output name=push_commit_message::$(git log --format=%B -n 1 <commit>)
       - name: show commit message
         run: echo $push_commit_message
       - name: Git Version Beta
