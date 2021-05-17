@@ -6,14 +6,28 @@ on:
   #     - "master"
   # schedule:
   #   - cron: "* */1 * * *"
+  # workflow_dispatch:
+  #   inputs:
+  #     logLevel:
+  #       description: "Log level"
+  #       required: true
+  #       default: "warning"
+  #     tags:
+  #       description: "Test scenario tags"
   workflow_dispatch:
     inputs:
       logLevel:
         description: "Log level"
         required: true
         default: "warning"
-      tags:
-        description: "Test scenario tags"
+      profile:
+        required: true
+        description: "Workflow Profile. default is dev"
+        default: "dev"
+      tag:
+        required: false
+        description: "Docker image tag. Workflow will set tag to sha of the commit if not set here"
+
 jobs:
   build:
     runs-on: ubuntu-latest
